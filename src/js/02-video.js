@@ -24,4 +24,3 @@ player.setCurrentTime(actualTime).then(function (seconds) {
                 break;
         }
     });
-    console.log(actualTime);
