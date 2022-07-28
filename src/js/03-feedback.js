@@ -6,8 +6,7 @@ const input = document.querySelector("input");
 const textArea = document.querySelector("textarea");
 
 form.addEventListener("input", throttle((event) => {
-      const { elements: { email, message } } = event.currentTarget;
-      const objectInput = { email: email.value, message: message.value };
+      const objectInput = { email: form.elements.email.value, message: form.elements.message.value };
       localStorage.setItem("feedback-form-state", JSON.stringify(objectInput));
       
 }, 500));
