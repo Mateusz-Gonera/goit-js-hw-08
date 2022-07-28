@@ -6,25 +6,22 @@ const player = new Player(iframe);
 
 player.on("timeupdate", throttle(({ duration, percent, seconds }) => {
     localStorage.setItem("videoplayer-current-time", `${seconds}`);
-    console.log(actualTime);
-}, 1000)
     
-) 
+}, 1000));
 
 const actualTime = localStorage.getItem("videoplayer-current-time");
 
-player.setCurrentTime(actualTime).then(function(seconds) {
-    // seconds = the actual time that the player seeked to
-}).catch(function(error) {
-    switch (error.name) {
-        case 'RangeError':
-            // the time was less than 0 or greater than the video’s duration
-            break;
+player.setCurrentTime(actualTime).then(function (seconds) {
+        // seconds = the actual time that the player seeked to
+    }).catch(function (error) {
+        switch (error.name) {
+            case 'RangeError':
+                // the time was less than 0 or greater than the video’s duration
+                break;
 
-        default:
-            // some other error occurred
-            break;
-    }
-});
-
-console.log(actualTime);
+            default:
+                // some other error occurred
+                break;
+        }
+    });
+    console.log(actualTime);
